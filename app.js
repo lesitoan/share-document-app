@@ -1,14 +1,13 @@
 const express = require('express');
 require('dotenv').config();
+const docsRouter = require('./routes/docsRoute');
 
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+app.use('/', docsRouter);
 
 const port = process.env.PORT;
 
 app.listen(port, () => {
-    console.log(`App listening on port ${port}`)
+    console.log(`App listening on port ${port}`);
 })
