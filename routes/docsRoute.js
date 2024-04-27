@@ -1,11 +1,10 @@
 const express = require('express');
+const docsController = require('../controllers/docsController');
 
 const router = express.Router();
 
 router.route('/')
-    .get((req, res) => {
-        res.send("hello Word !!!");
-    })
+    .get(docsController.test);
 
 
 module.exports = router;
