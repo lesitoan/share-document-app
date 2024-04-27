@@ -1,9 +1,8 @@
 const pool = require('../config/connetDB');
 
-
 const test = async (req, res) => {
     try {
-        res.send('OK OK !!!!!!!!!!');
+        res.render('test');
     } catch (err) {
         console.log(err);
     }
