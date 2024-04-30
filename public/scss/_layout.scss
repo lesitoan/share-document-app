@@ -1,0 +1,52 @@
+.header {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: $primary-color;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    .logo {
+        height: 2rem;
+    }
+    ul {
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 1.6rem;
+        list-style-type:none;
+        li {
+            &:hover {
+                cursor: pointer;
+                color: red;
+            }   
+        }
+    }
+    .feature {
+        
+        &-item {
+        }
+    }
+    .signup-login {
+
+
+    }
+    .avatar {
+        height: 4rem;
+    }
+}  
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 10rem;
+    background-color: $primary-color;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+
+    p {
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+}
