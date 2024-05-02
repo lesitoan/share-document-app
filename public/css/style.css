@@ -21,9 +21,8 @@ body {
   margin: 0 auto; }
 
 .header {
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   padding: 1rem;
   background-color: #00483d;
@@ -39,6 +38,8 @@ body {
     .header ul li:hover {
       cursor: pointer;
       color: red; }
+  .header .feature {
+    margin-right: auto; }
   .header .avatar {
     height: 4rem; }
 
@@ -51,8 +52,10 @@ body {
   font-size: 1.4rem;
   margin-top: 2rem; }
   .footer p {
+    width: 100%;
     text-align: center;
-    padding-bottom: 1rem; }
+    padding: 0.7rem 0;
+    background-color: #013931; }
 
 .homepage {
   min-height: 100vh;

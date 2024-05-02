@@ -1,7 +1,6 @@
 .header {
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     padding: 1rem;
     background-color: $primary-color;
@@ -23,7 +22,7 @@
         }
     }
     .feature {
-        
+        margin-right: auto;
         &-item {
         }
     }
@@ -46,7 +45,9 @@
     margin-top: 2rem;
 
     p {
+        width: 100%;
         text-align: center;
-        padding-bottom: 1rem;
+        padding: 0.7rem 0;
+        background-color: $primary-color-dark;
     }
 }
