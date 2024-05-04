@@ -10,6 +10,8 @@ router.route('/')
         console.log(req.body)
         res.send("oke !!!!!");
     })
+router.route('/documents')
+    .get(docsController.textDb);
 
 
 module.exports = router;

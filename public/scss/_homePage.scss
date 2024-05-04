@@ -1,4 +1,20 @@
 .homepage {
     min-height: 100vh;
     background-color: $primary-color;
+
+    .search {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        min-height: 3.5rem;
+        margin: $margin-medium 0;
+
+        &__input {
+            width: 70%;
+            max-width: 60rem;
+        }
+
+        &__btn {}
+    }
+
 }

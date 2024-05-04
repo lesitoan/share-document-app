@@ -60,3 +60,61 @@ body {
 .homepage {
   min-height: 100vh;
   background-color: #00483d; }
+  .homepage .search {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 3.5rem;
+    margin: 15px 0; }
+    .homepage .search__input {
+      width: 70%;
+      max-width: 60rem; }
+
+.heading-h2 {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  line-height: 5rem;
+  font-size: 2.5rem;
+  color: #fff;
+  background-color: red; }
+
+.box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+  .box__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: red;
+    border-radius: 5px;
+    width: 20rem;
+    height: 25rem;
+    margin: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1.2rem;
+    border: 3px solid #0d00ff; }
+    .box__item-img {
+      max-height: 70%;
+      width: auto;
+      object-fit: contain; }
+    .box__item-text {
+      width: 100%;
+      height: 15%;
+      background-color: green;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    .box__item-btn {
+      width: 100%;
+      height: 15%;
+      border: none;
+      background-color: green;
+      font-family: "Roboto", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600; }
+      .box__item-btn:hover {
+        cursor: pointer;
+        font-size: 1.4rem; }
