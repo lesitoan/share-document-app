@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
     }
 })
 
-const upload = multer({
+const uploadFile = multer({
     storage: storage,
     fileFilter: (req, file, cb) => {
         const ext = file.originalname.substring(file.originalname.lastIndexOf("."), file.originalname.length);
@@ -22,4 +22,4 @@ const upload = multer({
     },
 })
 
-module.exports = upload;
+module.exports = uploadFile;

@@ -118,3 +118,6 @@ body {
       .box__item-btn:hover {
         cursor: pointer;
         font-size: 1.4rem; }
+
+.uploadPage {
+  min-height: 100vh; }
