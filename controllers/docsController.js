@@ -1,3 +1,4 @@
+const { NULL } = require('node-sass');
 const pool = require('../config/connetDB');
 
 const getUploadPage = async (req, res) => {
@@ -14,16 +15,24 @@ const createDocs = async (req, res) => {
     try {
         let { name, school, academic, type } = req.body;
         const url = req.file.filename;
-        type = Number(type);
-
+        type = type ? Number(type) : 0;
         const query = ` INSERT INTO documents (name, school, academic, url, type)
                         VALUES ('${name}', '${school}', '${academic}', '${url}', ${type});`;
-        console.log(query)
         const [data, fields] = await pool.query(query);
-        console.log(data)
-        res.send('ok');
+        return res.status(201).json({
+            status: "success",
+            data: {
+                data: NULL,
+            }
+        })
     } catch (err) {
         console.log(err);
+        return res.status(200).json({
+            status: "faild",
+            data: {
+                data: NULL,
+            }
+        })
     }
 }
 
