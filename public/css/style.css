@@ -57,16 +57,16 @@ body {
     padding: 0.7rem 0;
     background-color: #013931; }
 
-.homepage {
+.homePage {
   min-height: 100vh;
   background-color: #00483d; }
-  .homepage .search {
+  .homePage .search {
     display: flex;
     justify-content: center;
     width: 100%;
     min-height: 3.5rem;
     margin: 15px 0; }
-    .homepage .search__input {
+    .homePage .search__input {
       width: 70%;
       max-width: 60rem; }
 
@@ -171,3 +171,7 @@ body {
       cursor: pointer; }
       .uploadPage .form-upload button:active {
         background-color: #006c4e; }
+
+.detailFilePage {
+  min-height: 100vh;
+  background-color: #00483d; }

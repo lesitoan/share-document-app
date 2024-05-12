@@ -36,4 +36,12 @@ const createDocs = async (req, res) => {
     }
 }
 
-module.exports = { getUploadPage, createDocs };
+const getFile = async (req, res) => {
+    try {
+        return res.render('pages/detailFilePage');
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+module.exports = { getUploadPage, createDocs, getFile };

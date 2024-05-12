@@ -8,5 +8,7 @@ router.route('/upload')
     .get(docsController.getUploadPage)
     .post(uploadFile.single("fileName"), docsController.createDocs);
 
+router.route('/:fileName')
+    .get(docsController.getFile);
 
 module.exports = router;
