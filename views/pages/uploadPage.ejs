@@ -1,62 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-    <%- include('../partials/header') %>
-
-        <div class="uploadPage">
-            <!-- <form enctype="multipart/form-data" action="/documents/upload" method="POST" -->
-            <form class="form-upload" name="form-upload">
-                <h4 class="form-upload__heading">Upload your document</h4>
-                <div class="form-upload__item">
-                    <input type="file" name="fileName" placeholder="" class="input-type-file" />
-                </div>
-                <div class="form-upload__item">
-                    <label>Tên tài liệu</label><br>
-                    <input class="input-tag name" type="text" placeholder="Enter name..." name="name">
-                </div>
-                <div class="form-upload__item">
-                    <label>Trường của bạn</label><br>
-                    <input class="input-tag school" type="text" placeholder="Enter school" name="school">
-                </div>
-                <div class="form-upload__item">
-                    <label>Ngành học</label><br>
-                    <input class="input-tag academic" type="text" placeholder="Enter academic" name="academic">
-                </div>
-                <div class="box-type form-upload__item">
-                    <label>Loại tài liệu</label><br>
-                    <div class="radio-box">
-                        <div class="radio-box__item">
-                            <input type="radio" id="document" name="type" value="0">
-                            <label for="type">document</label><br>
-                        </div>
-                        <div class="radio-box__item">
-                            <input type="radio" id="book" name="type" value="1">
-                            <label for="book">book</label><br>
-                        </div>
-                        <div class="radio-box__item">
-                            <input type="radio" id="other" name="type" value="2">
-                            <label for="other">other</label><br><br>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-submit-upload" type="submit">Submit</button>
-            </form>
+<div class="uploadPage">
+    <!-- <form enctype="multipart/form-data" action="/documents/upload" method="POST" -->
+    <form class="form-upload" name="form-upload">
+        <h4 class="form-upload__heading">Upload your document</h4>
+        <div class="form-upload__item">
+            <input type="file" name="fileName" placeholder="" class="input-type-file" />
         </div>
-
-        <%- include('../partials/footer') %>
-            <script src="/js/bundle.js"></script>
-</body>
-
-</html>
+        <div class="form-upload__item">
+            <label>Tên tài liệu</label><br>
+            <input class="input-tag name" type="text" placeholder="Enter name..." name="name">
+        </div>
+        <div class="form-upload__item">
+            <label>Trường của bạn</label><br>
+            <input class="input-tag school" type="text" placeholder="Enter school" name="school">
+        </div>
+        <div class="form-upload__item">
+            <label>Ngành học</label><br>
+            <input class="input-tag academic" type="text" placeholder="Enter academic" name="academic">
+        </div>
+        <div class="box-type form-upload__item">
+            <label>Loại tài liệu</label><br>
+            <div class="radio-box">
+                <div class="radio-box__item">
+                    <input type="radio" id="document" name="type" value="0">
+                    <label for="type">document</label><br>
+                </div>
+                <div class="radio-box__item">
+                    <input type="radio" id="book" name="type" value="1">
+                    <label for="book">book</label><br>
+                </div>
+                <div class="radio-box__item">
+                    <input type="radio" id="other" name="type" value="2">
+                    <label for="other">other</label><br><br>
+                </div>
+            </div>
+        </div>
+        <button class="btn-submit-upload" type="submit">Submit</button>
+    </form>
+</div>

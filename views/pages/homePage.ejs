@@ -1,127 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="homePage">
+    <div class="search">
+        <input placeholder="search" type="text" class="search__input">
+        <button class="search__btn">Search</button>
+    </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-    <%- include('../partials/header') %>
-        <div class="homePage">
-            <div class="search">
-                <input placeholder="search" type="text" class="search__input">
-                <button class="search__btn">Search</button>
+    <!-- it -->
+    <h2 class="heading-h2">Cong nghe thong tin</h2>
+    <div class="box">
+        <% for (let i=0; i < data.length; i++) { %>
+            <div class="box__item">
+                <div class="box__item-text">
+                    <h4 class="box__item-text-h4">
+                        <%= data[i].name %>
+                    </h4>
+                </div>
+                <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
+                <button class="box__item-btn">See all</button>
             </div>
+            <% } %>
+    </div>
+    <!-- end it -->
 
-            <!-- it -->
-            <h2 class="heading-h2">Cong nghe thong tin</h2>
-            <div class="box">
-                <% for (let i=0; i < data.length; i++) { %>
-                    <div class="box__item">
-                        <div class="box__item-text">
-                            <h4 class="box__item-text-h4">
-                                <%= data[i].name %>
-                            </h4>
-                        </div>
-                        <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
-                        <button class="box__item-btn">See all</button>
-                    </div>
-                    <% } %>
+    <!-- other -->
+    <h2 class="heading-h2">cac mon ki thuat</h2>
+
+    <div class="box">
+        <div class="box__item">
+            <div class="box__item-text">
+                <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
             </div>
-            <!-- end it -->
-
-            <!-- other -->
-            <h2 class="heading-h2">cac mon ki thuat</h2>
-
-            <div class="box">
-                <div class="box__item">
-                    <div class="box__item-text">
-                        <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
-                    </div>
-                    <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
-                    <button class="box__item-btn">See all</button>
-                </div>
-                <div class="box__item">
-                    <div class="box__item-text">
-                        <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
-                    </div>
-                    <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
-                    <button class="box__item-btn">See all</button>
-                </div>
-                <div class="box__item">
-                    <div class="box__item-text">
-                        <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
-                    </div>
-                    <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
-                    <button class="box__item-btn">See all</button>
-                </div>
-                <div class="box__item">
-                    <div class="box__item-text">
-                        <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
-                    </div>
-                    <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
-                    <button class="box__item-btn">See all</button>
-                </div>
-                <div class="box__item">
-                    <div class="box__item-text">
-                        <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
-                    </div>
-                    <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
-                    <button class="box__item-btn">See all</button>
-                </div>
-            </div>
-            <!-- end other -->
-
-            <!-- other -->
-            <h2 class="heading-h2">cac mon ki thuat</h2>
-
-            <div class="box">
-                <div class="box__item">
-                    <div class="box__item-text">
-                        <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
-                    </div>
-                    <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
-                    <button class="box__item-btn">See all</button>
-                </div>
-                <div class="box__item">
-                    <div class="box__item-text">
-                        <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
-                    </div>
-                    <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
-                    <button class="box__item-btn">See all</button>
-                </div>
-                <div class="box__item">
-                    <div class="box__item-text">
-                        <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
-                    </div>
-                    <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
-                    <button class="box__item-btn">See all</button>
-                </div>
-                <div class="box__item">
-                    <div class="box__item-text">
-                        <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
-                    </div>
-                    <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
-                    <button class="box__item-btn">See all</button>
-                </div>
-                <div class="box__item">
-                    <div class="box__item-text">
-                        <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
-                    </div>
-                    <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
-                    <button class="box__item-btn">See all</button>
-                </div>
-            </div>
-            <!-- end other -->
+            <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
+            <button class="box__item-btn">See all</button>
         </div>
-        <%- include('../partials/footer') %>
-</body>
+        <div class="box__item">
+            <div class="box__item-text">
+                <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
+            </div>
+            <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
+            <button class="box__item-btn">See all</button>
+        </div>
+        <div class="box__item">
+            <div class="box__item-text">
+                <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
+            </div>
+            <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
+            <button class="box__item-btn">See all</button>
+        </div>
+        <div class="box__item">
+            <div class="box__item-text">
+                <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
+            </div>
+            <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
+            <button class="box__item-btn">See all</button>
+        </div>
+        <div class="box__item">
+            <div class="box__item-text">
+                <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
+            </div>
+            <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
+            <button class="box__item-btn">See all</button>
+        </div>
+    </div>
+    <!-- end other -->
 
-</html>
+    <!-- other -->
+    <h2 class="heading-h2">cac mon ki thuat</h2>
+
+    <div class="box">
+        <div class="box__item">
+            <div class="box__item-text">
+                <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
+            </div>
+            <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
+            <button class="box__item-btn">See all</button>
+        </div>
+        <div class="box__item">
+            <div class="box__item-text">
+                <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
+            </div>
+            <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
+            <button class="box__item-btn">See all</button>
+        </div>
+        <div class="box__item">
+            <div class="box__item-text">
+                <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
+            </div>
+            <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
+            <button class="box__item-btn">See all</button>
+        </div>
+        <div class="box__item">
+            <div class="box__item-text">
+                <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
+            </div>
+            <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
+            <button class="box__item-btn">See all</button>
+        </div>
+        <div class="box__item">
+            <div class="box__item-text">
+                <h4 class="box__item-text-h4">lap trinh huong doi tuong</h4>
+            </div>
+            <img src="/img/ex-1.jpg" alt="docs-img" class="box__item-img">
+            <button class="box__item-btn">See all</button>
+        </div>
+    </div>
+    <!-- end other -->
+</div>
