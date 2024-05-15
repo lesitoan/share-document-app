@@ -174,4 +174,21 @@ body {
 
 .detailFilePage {
   min-height: 100vh;
-  background-color: #00483d; }
+  background-color: #00483d;
+  display: flex; }
+  .detailFilePage .left-content {
+    flex-grow: 3;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .detailFilePage .left-content .view-doc {
+      width: 80%;
+      height: 70vh;
+      background-color: green; }
+      .detailFilePage .left-content .view-doc iframe {
+        width: 100%;
+        height: 100%; }
+  .detailFilePage .right-content {
+    flex-grow: 1;
+    background-color: yellow; }
