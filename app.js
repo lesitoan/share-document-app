@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
 const expressLayout = require('express-ejs-layouts');
-const routes = require('./routes/mainRoute');
+const routes = require('./routes/mainRoutes');
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -18,9 +18,9 @@ app.use(expressLayout);
 app.set('layout', 'index');
 
 
-app.use('/documents', routes.docsRoute);
-app.use('/user', routes.userRoute);
-app.use('/', routes.homeRoute);
+app.use('//api/v1/docs', routes.docsRoutes);
+app.use('/api/v1/users', routes.userRoutes);
+app.use('/', routes.viewRoutes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

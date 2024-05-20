@@ -1,15 +1,5 @@
-const { NULL } = require('node-sass');
+// const { NULL } = require('node-sass');
 const pool = require('../config/connetDB');
-
-const getUploadPage = async (req, res) => {
-    try {
-        res.render('pages/uploadPage', {
-            title: "upload"
-        });
-    } catch (err) {
-        console.log(err);
-    }
-}
 
 const createDocs = async (req, res) => {
     try {
@@ -36,12 +26,6 @@ const createDocs = async (req, res) => {
     }
 }
 
-const getFile = async (req, res) => {
-    try {
-        return res.render('pages/detailFilePage');
-    } catch (err) {
-        console.log(err);
-    }
-}
 
-module.exports = { getUploadPage, createDocs, getFile };
+
+module.exports = { createDocs };
