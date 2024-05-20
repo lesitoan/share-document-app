@@ -8,55 +8,53 @@
     background-color: red;
 }
 
-.box {
+.type-box {
+    background-color: #acacac;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem 0;
 
-    &__item {
+    &__item {}
+}
+
+.card {
+    width: 20rem;
+    height: 24rem;
+    background-color: rgb(6, 75, 75);
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    color: white;
+
+    &__img {
+        width: 100%;
+        height: 60%;
+        background-color: #fff;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: red;
-        border-radius: 5px;
-        width: 20rem;
-        height: 25rem;
-        margin: 1rem;
-        overflow: hidden;
-        white-space: nowrap;
-        font-size: 1.2rem;
-        border: 3px solid #0d00ff;
+        justify-content: center;
 
-        &-img {
-            max-height: 70%;
-            width: auto;
-            object-fit: contain;
-            // transform: translateX(50%);
-        }
-
-        &-text {
-            width: 100%;
-            height: 15%;
-            background-color: green;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        &-btn {
-            width: 100%;
-            height: 15%;
-            border: none;
-            background-color: green;
-            font-family: "Roboto", sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-
-            &:hover {
-                cursor: pointer;
-                font-size: 1.4rem;
-            }
+        img {
+            height: 100%;
         }
     }
 
+    &__text {
+        margin-bottom: auto;
+        padding: 0.6rem;
+        overflow: hidden;
+
+        h4 {
+            font-weight: 450;
+            text-align: center;
+        }
+    }
+
+    &__btn {
+        color: inherit;
+        font-size: inherit;
+        text-decoration: none;
+        background-color: rgba($color: #000000, $alpha: 0.4);
+        text-align: center;
+        line-height: 4rem;
+    }
 }

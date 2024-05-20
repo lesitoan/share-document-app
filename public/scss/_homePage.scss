@@ -1,20 +1,24 @@
 .homePage {
     min-height: 100vh;
-    background-color: $primary-color;
 
-    .search {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        min-height: 3.5rem;
-        margin: $margin-medium 0;
+    .section {
+        background-color: rgba($color: #114344, $alpha: 0.3);
 
-        &__input {
-            width: 70%;
-            max-width: 60rem;
+        &:not(:first-child) {
+            margin-top: 4rem;
         }
-
-        &__btn {}
     }
+
+    &__heading {
+        display: inline-block;
+        background-color: rgb(6, 75, 75);
+        padding: 1rem 6rem;
+        font-size: 2rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
 
 }

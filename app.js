@@ -19,6 +19,7 @@ app.set('layout', 'index');
 
 
 app.use('/documents', routes.docsRoute);
+app.use('/user', routes.userRoute);
 app.use('/', routes.homeRoute);
 
 const port = process.env.PORT || 5000;

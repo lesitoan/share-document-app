@@ -1,11 +1,78 @@
-<div class="detailFilePage">
+<div class="detail-doc-page">
     <div class="left-content">
-        <h3 class="title-doc">Cau truc du lieu va giai thuat</h3>
-        <div class="view-doc">
-            <iframe src="/pdf/aaa.pdf" frameBorder="0" scrolling="auto" ></iframe>
+        <h3 class="doc-title">cấu trúc dữ liệu và giải thuật</h3>
+        <div class="doc-view">
+            <iframe src="/pdf/aaa.pdf" frameBorder="0" scrolling="auto"></iframe>
         </div>
+        <div class="btn">
+            <i class="btn__like fa-solid fa-thumbs-up"></i>
+            <button class="btn__download">Download</button>
+        </div>
+        <h3 class="doc-title">Chi tiết</h3>
+        <table class="detail-table">
+            <colgroup>
+                <col class="col-1">
+                <col class="col-2">
+            </colgroup>
+            <tr>
+                <td>Tên tài liệu</td>
+                <td>Cấu trúc dữ liệu và giải thuật</td>
+            </tr>
+            <tr>
+                <td>Trường</td>
+                <td>Đại học bách kha đà nẵng</td>
+            </tr>
+            <tr>
+                <td>Mô tả chi tiết</td>
+                <td>Cấu trúc dữ liệu và giải thuật siêu cấp vip pro</td>
+            </tr>
+            <tr>
+                <td>Định dạng</td>
+                <td>PDF</td>
+            </tr>
+            <tr>
+                <td>Dung lượng</td>
+                <td>45Mb</td>
+            </tr>
+            <tr>
+                <td>Tên tài liệu</td>
+                <td>Cấu trúc dữ liệu và giải thuật</td>
+            </tr>
+            <tr>
+                <td>Trường</td>
+                <td>Đại học bách kha đà nẵng</td>
+            </tr>
+            <tr>
+                <td>Mô tả chi tiết</td>
+                <td>Cấu trúc dữ liệu và giải thuật siêu cấp vip pro</td>
+            </tr>
+            <tr>
+                <td>Định dạng</td>
+                <td>PDF</td>
+            </tr>
+            <tr>
+                <td>Dung lượng</td>
+                <td>45Mb</td>
+            </tr>
+        </table>
     </div>
     <div class="right-content">
-        right content
+        <h3 class="title">Tài liệu được tải nhiều nhất</h3>
+        <div class="card-box">
+            <% for(let i=0; i < 15; i++) { %>
+                <div class="doc-card">
+                    <div class="doc-card__image">
+                        <img src="/img/ex-1.jpg" alt="photo">
+                    </div>
+                    <div class="doc-card__content">
+                        <h5 class="doc-card__title">Lập trình hướng đối tượng Lập trình hướng đối tượng</h5>
+                        <div class="doc-card__detail">
+                            <i class="fa-solid fa-thumbs-up">2000</i>
+                            <i class="fa-solid fa-download">95</i>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+        </div>
     </div>
 </div>

@@ -1,0 +1,115 @@
+.login-page {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+
+    .left-content {
+        background-color: rgb(6, 75, 75);
+        flex-grow: 1;
+        margin-right: 0.2rem;
+    }
+
+    .form-login {
+        padding: 10rem 2rem;
+        width: 60rem;
+        background-color: rgb(6, 75, 75);
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        flex-direction: column;
+
+        &>*:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+
+        &__heading {
+            font-size: 3.5rem;
+        }
+
+        input {
+            width: 90%;
+            height: 6rem;
+            padding-left: 1rem;
+            color: white;
+            font-size: 1.4rem;
+            font-family: inherit;
+            background-color: rgba(#000000, .5);
+            border: none;
+            border-bottom: 3px solid transparent;
+            display: block;
+            box-shadow: 0 1rem 2rem rgba(#000000, .04);
+            transition: all .3s;
+
+            &::placeholder {
+                font-size: 1.4rem;
+                color: white;
+            }
+
+            &:focus {
+                outline: 0.4px solid white;
+            }
+
+
+        }
+
+        &__btn {
+            width: 90%;
+            height: 6rem;
+            font-size: 1.8rem;
+            background-color: #00964b;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            &:active {
+                width: 88%;
+                transform: translateY(-1px);
+                background-color: #01793d;
+            }
+        }
+
+        &__feature {
+            text-align: center;
+
+            span {
+                font-size: 1.4rem;
+            }
+
+            i {
+                font-size: 2.5rem;
+                padding-top: 1rem;
+                cursor: pointer;
+
+                &:not(:last-child) {
+                    padding-right: 2rem;
+                }
+            }
+
+            .fa {
+                &-facebook {
+                    color: rgb(0, 46, 162);
+                }
+
+                &-google {
+                    color: rgb(171, 9, 9);
+                }
+
+                &-linkedin {
+                    color: rgb(0, 93, 199);
+                }
+            }
+
+        }
+
+        &__forgot-pw {
+            text-align: center;
+            font-size: 1.4rem;
+
+            a {
+                text-decoration: none;
+                color: #00964b;
+            }
+        }
+    }
+}
