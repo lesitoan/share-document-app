@@ -4,7 +4,9 @@ const uploadFile = require('../middlewares/multerMiddleware');
 
 
 const router = express.Router();
+router.route('/')
+    .get(docsController.getAllDocs);
 router.route('/upload')
-    .post(uploadFile.single("fileName"), docsController.createDocs);
+    .post(uploadFile.single("fileName"), docsController.createDoc);
 
 module.exports = router;

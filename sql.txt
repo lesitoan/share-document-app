@@ -4,6 +4,47 @@ CREATE TABLE documents (
     url VARCHAR(255),
     school VARCHAR(100),
     academic VARCHAR(100),
-    type INT DEFAULT 0,
 	PRIMARY KEY (id)
 );
+
+CREATE TABLE users (
+	id INT AUTO_INCREMENT,
+    userName VARCHAR(15) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    role VARCHAR(50) DEFAULT 'user' NOT NULL,
+    money INT,
+    password VARCHAR(25) NOT NULL,
+    PRIMARY KEY (id)
+)
+
+
+INSERT INTO documents (name, school, academic, url)
+VALUES ("điện tử 1", "bkhcm", "dtvt", "/dien-tu-1"),
+		("Tin học cơ sở 1", "bkhcm", "dtvt", "/dien-tu-1"),
+        ("Giải tích 1", "bkdn", "dtvt", "/dien-tu-1"),
+        ("TinKỹ thuật siêu cao tần", "bkhn", "dtvt", "/dien-tu-1"),
+        ("Kỹ thuật mạng truyền thông", "khtn", "dtvt", "/dien-tu-1"),
+        ("Toán rời rạc", "bkdn", "dtvt", "/dien-tu-1"),
+        ("Thông tin di động", "bkhcm", "dtvt", "/dien-tu-1"),
+        ("Lập trình hướng đối tượng", "bkhcm", "dtvt", "/dien-tu-1"),
+        ("Điện toán và đám mây", "bkhn", "dtvt", "/dien-tu-1"),
+        ("Kiến trúc máy tính", "bkhcm", "dtvt", "/dien-tu-1"),
+        ("Xử lý tín hiệu số", "bkhn", "dtvt", "/dien-tu-1"),
+        ("Tín hiệu và hệ thống", "bkhcm", "dtvt", "/dien-tu-1"),
+
+        ("lập trình hướng đói tượng", "bkdn", "cntt", "/dien-tu-1"),
+        ("công nghệ phần mền", "bkhcm", "cntt", "/dien-tu-1"),
+        ("lập trình mạng", "bkhn", "cntt", "/dien-tu-1"),
+        ("cấu trúc dữ liệu và giải thuật", "bkdn", "cntt", "/dien-tu-1"),
+        ("lập trình linux", "bkdn", "cntt", "/dien-tu-1"),
+        ("lập trình java", "bkhcm", "cntt", "/dien-tu-1"),
+        ("nhập môn lập trình", "bkdn", "cntt", "/dien-tu-1"),
+        ("hệ điều hành", "bkdn", "cntt", "/dien-tu-1"),
+        
+        ("Nhập môn Kỹ thuật Cơ điện tử", "bkdn", "codientu", "/dien-tu-1"),
+        ("ruyền động thủy lực và khí nén", "bkdn", "codientu", "/dien-tu-1"),
+        ("Robotics", "bkdn", "codientu", "/dien-tu-1"),
+        ("Thực tập Vi điều khiển", "bkhn", "codientu", "/dien-tu-1"),
+        ("Thực tập mô phỏng và điều khiển robot", "bkdn", "codientu", "/dien-tu-1"),
+        ("Hệ thống Cơ điện tử", "bkdn", "codientu", "/dien-tu-1"),
+        ("Điều khiển tự động", "bkhcm", "codientu", "/dien-tu-1");
