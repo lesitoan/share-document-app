@@ -1,5 +1,6 @@
 import { handleUploadForm } from './handleUploadForm';
-import { signIn, signUp } from './handleUploadForm';
+import { signIn, signUp } from './handleLoginForm';
+import { handleSearchDocs } from './handleSearchDocs';
 
 
 // handle submit upload file
@@ -17,5 +18,22 @@ if (btnSignIn) {
     btnSignIn.addEventListener('click', (e) => {
         e.preventDefault();
         signIn();
+    })
+}
+//handle submit sign up
+const btnSignUp = document.querySelector('.signup__btn');
+if (btnSignUp) {
+    btnSignUp.addEventListener('click', (e) => {
+        e.preventDefault();
+        signUp();
+    })
+}
+
+// handle submit search
+const btnSearch = document.querySelector('.search__btn');
+if (btnSearch) {
+    btnSearch.addEventListener('click', (e) => {
+        e.preventDefault();
+        handleSearchDocs();
     })
 }

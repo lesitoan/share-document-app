@@ -23,7 +23,7 @@ export const handleUploadForm = async () => {
         formData.append('school', school);
         formData.append('academic', academic);
         formData.append('fileName', document.getElementsByName('fileName')[0].files[0]);
-        const url = 'http://localhost:8080/api/v1/docs/upload';
+        const url = `${window.location.origin}/api/v1/docs/upload`;
         const response = await axios({
             method: "post",
             url,

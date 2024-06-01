@@ -1,0 +1,19 @@
+<div class="docs-page">
+    <h2 class="docs-page__heading">Kết quả tìm kiếm cho: <%=query%>
+    </h2>
+    <div class="docs-page__container">
+        <% for (var i=0; i <docs.length; i++ ) { %>
+            <div class="card type-box__item docs-page__item">
+                <div class="card__img">
+                    <img src="/img/ex-1.jpg" alt="docs-img">
+                </div>
+                <div class="card__text">
+                    <h4>
+                        <%= docs[i].name %>
+                    </h4>
+                </div>
+                <a href="#" class="card__btn">See all</a>
+            </div>
+            <% } %>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 var bcrypt = require('bcryptjs');
 const pool = require('../config/connetDB');
+const { generateAccessToken, generateRefreshToken } = require('../utils/jwt');
 
 
 const signUp = async (req, res) => {
@@ -29,6 +30,12 @@ const signUp = async (req, res) => {
         })
     } catch (err) {
         console.log(err);
+        return res.status(200).json({
+            status: "faild",
+            data: {
+                data: {},
+            }
+        });
     }
 }
 
@@ -40,10 +47,20 @@ const signIn = async (req, res) => {
         }
         //check password
         const user = await pool.query(`SELECT * FROM users WHERE email = '${email}'`);
+        if (!user[0][0]) {
+            throw Error('Email or Password not correct !!!');
+        }
         const checkPassword = await bcrypt.compare(password, user[0][0].password);
         if (!checkPassword) {
             throw Error('Email or Password not correct !!!');
         }
+
+        // create access token and refresh token
+        const accessToken = generateAccessToken(user[0][0].id, user[0][0].role);
+        const refreshToken = generateRefreshToken(user[0][0].id, user[0][0].role);
+        res.cookie('accessToken', accessToken, { maxAge: 900000, httpOnly: true });
+        res.cookie('refreshToken', refreshToken, { maxAge: 900000, httpOnly: true });
+
         return res.status(200).json({
             status: "success",
             data: {
@@ -51,7 +68,13 @@ const signIn = async (req, res) => {
             },
         })
     } catch (err) {
-
+        console.log(err);
+        return res.status(200).json({
+            status: "faild",
+            data: {
+                data: {},
+            }
+        });
     }
 }
 

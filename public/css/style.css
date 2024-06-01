@@ -430,3 +430,18 @@ body {
       .login-page .form-login__forgot-pw a {
         text-decoration: none;
         color: #00964b; }
+
+.docs-page {
+  min-height: 100vh; }
+  .docs-page__heading {
+    display: inline-block;
+    background-color: #064b4b;
+    padding: 1rem 6rem;
+    font-size: 2rem; }
+    .docs-page__heading:hover {
+      cursor: pointer; }
+  .docs-page__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between; }

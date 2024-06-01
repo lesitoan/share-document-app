@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
 const expressLayout = require('express-ejs-layouts');
+const cookieParser = require('cookie-parser')
 const routes = require('./routes/index');
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(cookieParser());
 
 app.use(expressLayout);
 app.set('layout', 'index');
