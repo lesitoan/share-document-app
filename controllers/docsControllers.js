@@ -8,7 +8,7 @@ const getAllDocs = async (req, res) => {
         return res.status(200).json({
             status: "success",
             data: {
-                data: data,
+                docs: data,
             }
         })
     } catch (err) {
@@ -56,6 +56,27 @@ const createDoc = async (req, res) => {
     }
 }
 
+const getDocsByQuery = async (req, res) => {
+    try {
+        const newQuery = req.query.q.normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/đ/g, "d")
+            .replace(/Đ/g, "D")
+            .replace(/\s/g, '_')
+            .toLowerCase();
+        const query = `SELECT * FROM documents WHERE slug LIKE '%${newQuery}%';`;
+        const docs = await pool.query(query);
+        return res.status(200).json({
+            status: "success",
+            data: {
+                docs: docs[0]
+            }
+        })
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 
-module.exports = { createDoc, getAllDocs };
+
+module.exports = { createDoc, getAllDocs, getDocsByQuery };

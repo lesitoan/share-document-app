@@ -4,6 +4,7 @@ const uploadFile = require('../middlewares/multerMiddleware');
 
 
 const router = express.Router();
+router.get('/find', docsController.getDocsByQuery)
 router.route('/')
     .get(docsController.getAllDocs);
 router.route('/upload')

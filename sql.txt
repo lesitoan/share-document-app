@@ -4,7 +4,8 @@ CREATE TABLE documents (
     url VARCHAR(255),
     school VARCHAR(100),
     academic VARCHAR(100),
-	PRIMARY KEY (id)
+	slug VARCHAR(255),
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE users (

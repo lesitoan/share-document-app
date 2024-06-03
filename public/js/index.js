@@ -1,7 +1,7 @@
 import { handleUploadForm } from './handleUploadForm';
 import { signIn, signUp } from './handleLoginForm';
 import { handleSearchDocs } from './handleSearchDocs';
-
+import { pagination } from './pagination';
 
 // handle submit upload file
 const btnSubmitUpload = document.querySelector('.btn-submit-upload');
@@ -36,4 +36,10 @@ if (btnSearch) {
         e.preventDefault();
         handleSearchDocs();
     })
+}
+
+//pagination
+const docsPage = document.querySelector('.docs-page');
+if (docsPage) {
+    pagination();
 }

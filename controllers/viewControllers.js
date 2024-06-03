@@ -38,30 +38,37 @@ const homePage = async (req, res) => {
 }
 
 const signInPage = (req, res) => {
-    res.render('pages/signInPage');
+    try {
+        return res.render('pages/signInPage');
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 const signUpPage = (req, res) => {
-    res.render('pages/signUpPage');
+    try {
+        return res.render('pages/signUpPage');
+    } catch (err) {
+        console.log(err);
+    }
 }
 
-const getDocsByKeyWord = async (req, res) => {
+const docsPage = (req, res) => {
     try {
-        const newQuery = req.query.q.normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .replace(/đ/g, "d")
-            .replace(/Đ/g, "D")
-            .replace(/\s/g, '_')
-            .toLowerCase();
-        const query = `SELECT * FROM documents WHERE slug LIKE '%${newQuery}%';`;
-        const docs = await pool.query(query);
         return res.render('pages/docsPage', {
             query: req.query.q,
-            docs: docs[0]
         });
     } catch (err) {
         console.log(err);
     }
 }
 
-module.exports = { uploadPage, detailPage, homePage, signInPage, signUpPage, getDocsByKeyWord }
+const userPage = (req, res) => {
+    try {
+        return res.render('pages/userPage');
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+module.exports = { uploadPage, detailPage, homePage, signInPage, signUpPage, docsPage, userPage }
