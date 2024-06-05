@@ -16,6 +16,7 @@ export const signIn = async () => {
         console.log(response);
         if (response.data.status === "success") {
             alert("Login successfully !!!!");
+            window.location.href = window.location.origin;
         } else {
             throw new Error("login faild, try again !!!!");
         }
@@ -44,10 +45,23 @@ export const signUp = async () => {
         })
         if (response.data.status === "success") {
             alert("Sign up successfully !!!!");
+            window.location.href = `${window.location.origin}/sign-in`;
         } else {
             throw new Error("Sign up faild, try again !!!!");
         }
     } catch (err) {
         alert(err);
+    }
+}
+
+export const logOut = async () => {
+    try {
+        console.log('dsdsd');
+        const url = `${window.location.origin}/api/v1/users/log-out`;
+        await axios.get(url);
+        window.location.href = window.location.origin;
+    } catch (err) {
+        console.log(err)
+        alert("logout faid !!!");
     }
 }

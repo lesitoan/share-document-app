@@ -32,9 +32,7 @@ const signUp = async (req, res) => {
         console.log(err);
         return res.status(200).json({
             status: "faild",
-            data: {
-                data: {},
-            }
+            data: {}
         });
     }
 }
@@ -58,8 +56,8 @@ const signIn = async (req, res) => {
         // create access token and refresh token
         const accessToken = generateAccessToken(user[0][0].id, user[0][0].role);
         const refreshToken = generateRefreshToken(user[0][0].id, user[0][0].role);
-        res.cookie('accessToken', accessToken, { maxAge: 900000, httpOnly: true });
-        res.cookie('refreshToken', refreshToken, { maxAge: 900000, httpOnly: true });
+        res.cookie('accessToken', accessToken, { maxAge: 1000 * 3 * 60 * 60, httpOnly: true }); //3hour
+        res.cookie('refreshToken', refreshToken, { maxAge: 1000 * 3 * 60 * 60, httpOnly: true });//3hour
 
         return res.status(200).json({
             status: "success",
@@ -71,12 +69,23 @@ const signIn = async (req, res) => {
         console.log(err);
         return res.status(200).json({
             status: "faild",
-            data: {
-                data: {},
-            }
+            data: {}
         });
     }
 }
 
-module.exports = { signUp, signIn }
+const logOut = async (req, res) => {
+    try {
+        res.clearCookie("accessToken");
+        res.clearCookie("refreshToken");
+        return res.status(200).json({
+            status: "success",
+            data: {},
+        })
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+module.exports = { signUp, signIn, logOut }
 

@@ -1,15 +1,16 @@
 const express = require('express');
 const viewControllers = require('../controllers/viewControllers');
+const { isLogin } = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
-router.get('/', viewControllers.homePage);
-router.get('/sign-in', viewControllers.signInPage);
-router.get('/sign-up', viewControllers.signUpPage);
-router.get('/docs/upload', viewControllers.uploadPage);
-router.get('/docs/:fileName', viewControllers.detailPage);
-router.get('/docs', viewControllers.docsPage);
-router.get('/me', viewControllers.userPage);
+router.get('/', isLogin, viewControllers.homePage);
+router.get('/sign-in', isLogin, viewControllers.signInPage);
+router.get('/sign-up', isLogin, viewControllers.signUpPage);
+router.get('/docs/upload', isLogin, viewControllers.uploadPage);
+router.get('/docs/:fileName', isLogin, viewControllers.detailPage);
+router.get('/docs', isLogin, viewControllers.docsPage);
+router.get('/me', isLogin, viewControllers.userPage);
 
 
 module.exports = router;

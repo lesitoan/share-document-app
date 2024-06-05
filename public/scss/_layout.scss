@@ -62,16 +62,83 @@
         }
 
         .login__box {
+            // background-color: rgb(6, 75, 75);
+
+            &--1,
+            &--2 {
+                list-style-type: none;
+                margin-right: 1rem;
+            }
+
             .login__item {
                 height: 4rem;
                 text-decoration: none;
                 color: inherit;
                 background-color: rgba($color: #000000, $alpha: 0.5);
                 padding: 1.2rem 1.6rem;
+                cursor: pointer;
             }
 
             .login__item:not(:last-child) {
                 margin-right: 1.4rem;
+            }
+
+            .avatar {
+                height: 5rem;
+                cursor: pointer;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            &--2 {
+                display: flex;
+                align-items: center;
+            }
+
+            .pop-up {
+
+
+                width: 14.9rem;
+                padding: 2rem 1rem;
+                // height: 40rem;
+                background-color: rgb(6, 75, 75);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+                position: absolute;
+                // right: 10rem;
+                top: 6.8rem;
+                // transform: translateX(3.9rem);
+                z-index: 10;
+
+                &__list {
+                    list-style-type: none;
+
+                    &>*:not(:last-child) {
+                        margin-bottom: 1.5rem;
+                    }
+                }
+
+                &__item {
+                    cursor: pointer;
+                    font-size: 1.4rem;
+                    padding: 0.5rem;
+
+                    i {
+                        padding-right: 5px;
+                    }
+
+                    &:hover {
+                        background-color: rgba($color: #000000, $alpha: .3);
+                    }
+                }
+
+                hr {
+                    height: 1px;
+                    width: 100%;
+                    margin-bottom: 1rem;
+                }
+
             }
         }
     }

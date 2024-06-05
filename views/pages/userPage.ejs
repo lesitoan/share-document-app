@@ -1,26 +1,26 @@
 <div class="user-page">
     <div class="user-page__side-bar">
-        <div class="feature">
+        <div class="feature" name="user-info">
             <i class="fa-solid fa-user feature__icon"></i>
             <h4 class="feature__heading">Thôn tin cá nhân</h4>
         </div>
-        <div class="feature">
+        <div class="feature" name="change-pw">
             <i class="fa-solid fa-key feature__icon"></i>
             <h4 class="feature__heading">Đổi mật khẩu</h4>
         </div>
-        <div class="feature">
+        <div class="feature" name="recharge">
             <i class="fa-solid fa-money-check-dollar feature__icon"></i>
             <h4 class="feature__heading">Nạp tiền</h4>
         </div>
-        <div class="feature">
+        <div class="feature" name="bought-docs">
             <i class="fa-solid fa-file feature__icon"></i>
             <h4 class="feature__heading">Tài liệu đã mua</h4>
         </div>
-        <div class="feature">
+        <div class="feature" name="soild-docs">
             <i class="fa-solid fa-handshake feature__icon"></i>
             <h4 class="feature__heading">Bán tài liệu</h4>
         </div>
-        <div class="feature">
+        <div class="log-out">
             <i class="fa-solid fa-right-from-bracket feature__icon"></i>
             <h4 class="feature__heading">Đăng Xuất</h4>
         </div>
@@ -28,9 +28,9 @@
 
 
     </div>
-    <div class="user-page__content">
+    <div class="user-page__contents">
 
-        <!-- <div class="user-info">
+        <div class="user-info user-page__content">
             <h3 class="content__heading">Thông tin cá nhân</h3>
             <ul class="user-info__list">
                 <li class="user-info__item">
@@ -46,9 +46,9 @@
                     <span class="value">5000</span>
                 </li>
             </ul>
-        </div> -->
+        </div>
 
-        <div class="change-pw">
+        <div class="change-pw user-page__content hidden ">
             <h3 class="content__heading">Đổi mật khẩu</h3>
             <form action="#">
                 <div class="item">
@@ -65,8 +65,21 @@
                 </div>
                 <button class="btn__submit">Save</button>
             </form>
+        </div>
 
+        <div class="recharge user-page__content hidden">
+            <h3 class="content__heading">Nạp tiền</h3>
+            <h2 style="text-align: center;">Chưa có dữ liệu</h2>
+        </div>
 
+        <div class="bought-docs user-page__content hidden">
+            <h3 class="content__heading">Tài liệu đã mua</h3>
+            <h2 style="text-align: center;">Chưa có dữ liệu</h2>
+        </div>
+
+        <div class="soild-docs recharge user-page__content hidden">
+            <h3 class="content__heading">Bán tài liệu</h3>
+            <h2 style="text-align: center;">Chưa có dữ liệu</h2>
         </div>
 
     </div>

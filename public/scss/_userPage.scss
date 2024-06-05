@@ -8,7 +8,8 @@
         display: flex;
         flex-direction: column;
 
-        .feature {
+        .feature,
+        .log-out {
             margin-left: 1.5rem;
             margin-right: 1.5rem;
             cursor: pointer;
@@ -32,18 +33,18 @@
                 margin-top: 1.5rem;
             }
 
-            &:last-child {
-                margin-top: auto;
-                margin-bottom: 1rem;
-            }
-
             &:hover {
                 background-color: rgba($color: #848484, $alpha: .3);
             }
         }
+
+        .log-out {
+            margin-top: auto;
+            margin-bottom: 1rem;
+        }
     }
 
-    &__content {
+    &__contents {
         flex-grow: 1;
         background-color: rgb(75, 75, 75);
 
@@ -106,7 +107,6 @@
                 label {
                     display: inline-block;
                     min-width: 18rem;
-
                 }
 
                 input {
@@ -137,7 +137,8 @@
             }
 
             .btn__submit {
-                width: 100%;
+                width: 30%;
+                transform: translateX(100%);
                 height: 4rem;
                 font-size: 1.4rem;
                 background-color: rgb(6, 75, 75);
@@ -147,7 +148,7 @@
                 transition: all 0.2s;
 
                 &:active {
-                    transform: translateY(2px);
+                    // transform: translateY(2px);
                     background-color: rgb(3, 43, 43);
                 }
             }

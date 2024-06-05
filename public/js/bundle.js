@@ -5520,7 +5520,7 @@ var handleUploadForm = exports.handleUploadForm = /*#__PURE__*/function () {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.signUp = exports.signIn = void 0;
+exports.signUp = exports.signIn = exports.logOut = void 0;
 var _axios = _interopRequireDefault(require("axios"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -5550,26 +5550,27 @@ var signIn = exports.signIn = /*#__PURE__*/function () {
           response = _context.sent;
           console.log(response);
           if (!(response.data.status === "success")) {
-            _context.next = 12;
+            _context.next = 13;
             break;
           }
           alert("Login successfully !!!!");
-          _context.next = 13;
+          window.location.href = window.location.origin;
+          _context.next = 14;
           break;
-        case 12:
-          throw new Error("login faild, try again !!!!");
         case 13:
-          _context.next = 18;
+          throw new Error("login faild, try again !!!!");
+        case 14:
+          _context.next = 19;
           break;
-        case 15:
-          _context.prev = 15;
+        case 16:
+          _context.prev = 16;
           _context.t0 = _context["catch"](0);
           alert(_context.t0);
-        case 18:
+        case 19:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[0, 15]]);
+    }, _callee, null, [[0, 16]]);
   }));
   return function signIn() {
     return _ref.apply(this, arguments);
@@ -5602,29 +5603,60 @@ var signUp = exports.signUp = /*#__PURE__*/function () {
         case 9:
           response = _context2.sent;
           if (!(response.data.status === "success")) {
-            _context2.next = 14;
+            _context2.next = 15;
             break;
           }
           alert("Sign up successfully !!!!");
-          _context2.next = 15;
+          window.location.href = "".concat(window.location.origin, "/sign-in");
+          _context2.next = 16;
           break;
-        case 14:
-          throw new Error("Sign up faild, try again !!!!");
         case 15:
-          _context2.next = 20;
+          throw new Error("Sign up faild, try again !!!!");
+        case 16:
+          _context2.next = 21;
           break;
-        case 17:
-          _context2.prev = 17;
+        case 18:
+          _context2.prev = 18;
           _context2.t0 = _context2["catch"](0);
           alert(_context2.t0);
-        case 20:
+        case 21:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[0, 17]]);
+    }, _callee2, null, [[0, 18]]);
   }));
   return function signUp() {
     return _ref2.apply(this, arguments);
+  };
+}();
+var logOut = exports.logOut = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+    var url;
+    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+      while (1) switch (_context3.prev = _context3.next) {
+        case 0:
+          _context3.prev = 0;
+          console.log('dsdsd');
+          url = "".concat(window.location.origin, "/api/v1/users/log-out");
+          _context3.next = 5;
+          return _axios.default.get(url);
+        case 5:
+          window.location.href = window.location.origin;
+          _context3.next = 12;
+          break;
+        case 8:
+          _context3.prev = 8;
+          _context3.t0 = _context3["catch"](0);
+          console.log(_context3.t0);
+          alert("logout faid !!!");
+        case 12:
+        case "end":
+          return _context3.stop();
+      }
+    }, _callee3, null, [[0, 8]]);
+  }));
+  return function logOut() {
+    return _ref3.apply(this, arguments);
   };
 }();
 },{"axios":"../../node_modules/axios/index.js"}],"handleSearchDocs.js":[function(require,module,exports) {
@@ -5772,6 +5804,66 @@ var docsPage = document.querySelector('.docs-page');
 if (docsPage) {
   (0, _pagination.pagination)();
 }
+
+// show pop up
+var avatar = document.querySelector('.avatar');
+if (avatar) {
+  avatar.addEventListener('click', function () {
+    var popup = document.querySelector('.pop-up');
+    if (popup.className.includes('hidden')) {
+      popup.classList.remove('hidden');
+    } else {
+      popup.classList.add('hidden');
+    }
+  });
+}
+
+//log out 
+var btnLogOut = document.querySelector('.pop-up--logout');
+var logOutFromUserPage = document.querySelector('.log-out');
+if (btnLogOut) {
+  btnLogOut.addEventListener('click', function () {
+    (0, _handleLoginForm.logOut)();
+  });
+}
+;
+if (logOutFromUserPage) {
+  logOutFromUserPage.addEventListener('click', function () {
+    (0, _handleLoginForm.logOut)();
+  });
+}
+;
+
+// get user info page
+var btnUserInfo = document.querySelector('.pop-up__user-info');
+if (btnUserInfo) {
+  btnUserInfo.addEventListener('click', function () {
+    window.location.href = "".concat(window.location.origin, "/me");
+  });
+}
+
+// handle click nav bar in user info page
+var userPage = document.querySelector('.user-page');
+if (userPage) {
+  var featureElements = document.querySelectorAll('.feature');
+  var _loop = function _loop(i) {
+    featureElements[i].addEventListener('click', function (e) {
+      // hidden all contents
+      var contentBoxs = document.querySelectorAll('.user-page__content');
+      for (var j = 0; j < contentBoxs.length; j++) {
+        if (!contentBoxs[j].className.includes('hidden')) {
+          contentBoxs[j].classList.add('hidden');
+        }
+      }
+      // show this content of bottom you click
+      var attri = featureElements[i].getAttribute('name');
+      document.querySelector(".".concat(attri)).classList.remove('hidden');
+    });
+  };
+  for (var i = 0; i < featureElements.length; i++) {
+    _loop(i);
+  }
+}
 },{"./handleUploadForm":"handleUploadForm.js","./handleLoginForm":"handleLoginForm.js","./handleSearchDocs":"handleSearchDocs.js","./pagination":"pagination.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -5797,7 +5889,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59551" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62259" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
