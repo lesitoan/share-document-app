@@ -1,21 +1,30 @@
-import axios from 'axios';
+import { callApi } from './callApi';
+
+function setCookie(cname, cvalue) {
+    const d = new Date();
+    d.setTime(d.getTime() + (3 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
 export const signIn = async () => {
     try {
         const email = document.querySelector('.form-login__email').value;
         const password = document.querySelector('.form-login__password').value;
         const url = `${window.location.origin}/api/v1/users/sign-in`;
-        const response = await axios({
-            method: "post",
-            url,
-            data: {
-                email,
-                password,
+        const response = await callApi(url, {
+            method: "POST",
+            data: { email, password },
+            headers: {
+                'Content-Type': 'application/json'
             },
         })
-        console.log(response);
+
         if (response.data.status === "success") {
             alert("Login successfully !!!!");
+            setCookie("name", response.data.data.user?.userName);
+            // setCookie("accessToken", response.data.data.user?.accessToken);
+            // setCookie("refreshToken", response.data.data.user?.refreshToken);
             window.location.href = window.location.origin;
         } else {
             throw new Error("login faild, try again !!!!");
@@ -31,18 +40,16 @@ export const signUp = async () => {
         const email = document.querySelector('.form-login__email').value;
         const password = document.querySelector('.form-login__password').value;
         const passwordConfirm = document.querySelector('.form-login__passwordConfirm').value;
-        console.log(userName, email, password, passwordConfirm)
+
         const url = `${window.location.origin}/api/v1/users/sign-up`;
-        const response = await axios({
-            method: "post",
-            url,
-            data: {
-                userName,
-                email,
-                password,
-                passwordConfirm
+        const response = await callApi(url, {
+            method: "POST",
+            data: { userName, email, password, passwordConfirm },
+            headers: {
+                'Content-Type': 'application/json'
             },
         })
+
         if (response.data.status === "success") {
             alert("Sign up successfully !!!!");
             window.location.href = `${window.location.origin}/sign-in`;
@@ -56,9 +63,11 @@ export const signUp = async () => {
 
 export const logOut = async () => {
     try {
-        console.log('dsdsd');
         const url = `${window.location.origin}/api/v1/users/log-out`;
-        await axios.get(url);
+        await callApi(url, {
+            method: "GET",
+        })
+        setCookie("name", "");
         window.location.href = window.location.origin;
     } catch (err) {
         console.log(err)

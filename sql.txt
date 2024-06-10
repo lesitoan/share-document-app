@@ -17,6 +17,8 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 )
+ALTER TABLE users
+ADD refreshToken VARCHAR(255);
 
 
 INSERT INTO documents (name, school, academic, url)

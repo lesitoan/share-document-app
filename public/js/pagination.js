@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { callApi } from './callApi';
 
 const loadDocs = (docs, curPage, docsPerPage) => {
     const docsCurPage = docs.slice(curPage * docsPerPage, curPage * docsPerPage + docsPerPage)
@@ -30,11 +30,9 @@ export const pagination = async () => {
         let totalPage = 1;
         let docsPerPage = 20;
         const dataSearch = window.location.href.slice(window.location.href.indexOf('=') + 1)
-        console.log(dataSearch);
         const url = `${window.location.origin}/api/v1/docs/find?q=${dataSearch}`;
-        const res = await axios.get(url);
+        const res = await callApi(url, { method: "GET" })
         const docs = res.data.data.docs;
-        console.log('dsds')
         if (!docs || docs.length === 0) {
             html = ' <h4 class="docs-page__title">Không tìm thấy nội dung phù hợp</h4>'
             const docsPageContainer = document.querySelector('.docs-page__container');
@@ -45,7 +43,6 @@ export const pagination = async () => {
 
         const pagination = document.querySelector('.docs-page__pagination');
         totalPage = Math.ceil(docs.length / docsPerPage);
-        console.log(totalPage)
         if (totalPage <= 1) {
             pagination.style.display = "none";
         } else {

@@ -2,6 +2,15 @@ import { handleUploadForm } from './handleUploadForm';
 import { signIn, signUp, logOut } from './handleLoginForm';
 import { handleSearchDocs } from './handleSearchDocs';
 import { pagination } from './pagination';
+import { changePassword } from './handleChangePw'
+import { setAvatar } from './setAvatar';
+
+
+// set avatar
+const header = document.querySelector('.header');
+if (header) {
+    setAvatar();
+}
 
 // handle submit upload file
 const btnSubmitUpload = document.querySelector('.btn-submit-upload');
@@ -97,6 +106,16 @@ if (userPage) {
             document.querySelector(`.${attri}`).classList.remove('hidden');
         })
     }
+}
+
+// sumit change password
+const btnChangePw = document.querySelector('.btn__change-pw');
+if (btnChangePw) {
+    console.log("change pw");
+    btnChangePw.addEventListener('click', (e) => {
+        e.preventDefault();
+        changePassword();
+    });
 }
 
 

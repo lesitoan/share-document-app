@@ -65,7 +65,9 @@ const docsPage = (req, res) => {
 
 const userPage = (req, res) => {
     try {
-        return res.render('pages/userPage');
+        const user = req.user;
+        console.log(req.user)
+        return res.render('pages/userPage', { user });
     } catch (err) {
         console.log(err);
     }

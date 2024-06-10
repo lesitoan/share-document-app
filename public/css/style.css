@@ -605,7 +605,7 @@ body {
             color: white; }
           .user-page__contents .change-pw .item input:focus {
             outline: 0.4px solid white; }
-      .user-page__contents .change-pw .btn__submit {
+      .user-page__contents .change-pw .btn__change-pw {
         width: 30%;
         transform: translateX(100%);
         height: 4rem;
@@ -615,5 +615,5 @@ body {
         color: white;
         cursor: pointer;
         transition: all 0.2s; }
-        .user-page__contents .change-pw .btn__submit:active {
+        .user-page__contents .change-pw .btn__change-pw:active {
           background-color: #032b2b; }

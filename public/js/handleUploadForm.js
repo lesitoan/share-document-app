@@ -1,4 +1,4 @@
-import axios from "axios";
+import { callApi } from './callApi';
 
 export const handleUploadForm = async () => {
     try {
@@ -24,12 +24,12 @@ export const handleUploadForm = async () => {
         formData.append('academic', academic);
         formData.append('fileName', document.getElementsByName('fileName')[0].files[0]);
         const url = `${window.location.origin}/api/v1/docs/upload`;
-        const response = await axios({
-            method: "post",
-            url,
+        const response = await callApi(url, {
+            method: "POST",
             data: formData,
             headers: { "Content-Type": "multipart/form-data" },
         })
+
         if (response.data.status === "success") {
             alert("Upload file successfully !!!!");
         } else {
