@@ -1,5 +1,6 @@
 const pool = require('../config/connetDB');
 
+
 const uploadPage = async (req, res) => {
     try {
         res.render('pages/uploadPage', {
@@ -65,9 +66,7 @@ const docsPage = (req, res) => {
 
 const userPage = (req, res) => {
     try {
-        const user = req.user;
-        console.log(req.user)
-        return res.render('pages/userPage', { user });
+        return res.render('pages/userPage');
     } catch (err) {
         console.log(err);
     }

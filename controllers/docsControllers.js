@@ -1,30 +1,21 @@
-// const { NULL } = require('node-sass');
 const pool = require('../config/connetDB');
+const catchAsync = require('../utils/catchAsync');
 
-const getAllDocs = async (req, res) => {
-    try {
+const getAllDocs = catchAsync(
+    async (req, res, next) => {
         const query = 'SELECT * FROM documents;';
-        const [data, fields] = await pool.query(query);
+        const response = await pool.query(query);
         return res.status(200).json({
             status: "success",
             data: {
-                docs: data,
-            }
-        })
-    } catch (err) {
-        console.log(err);
-        return res.status(200).json({
-            status: "faild",
-            data: {
-                data: null,
+                docs: response[0],
             }
         })
     }
-}
+)
 
-
-const createDoc = async (req, res) => {
-    try {
+const createDoc = catchAsync(
+    async (req, res, next) => {
         const { name, school, academic } = req.body;
         const url = req.file?.filename ? req.file.filename : null;
 
@@ -37,27 +28,17 @@ const createDoc = async (req, res) => {
             .toLowerCase();
 
         const query = ` INSERT INTO documents (name, school, academic, url, slug)
-                        VALUES ('${name}', '${school}', '${academic}', '${url}', '${slug}');`;
-        const [data, fields] = await pool.query(query);
+                            VALUES ('${name}', '${school}', '${academic}', '${url}', '${slug}');`;
+        await pool.query(query);
         return res.status(201).json({
             status: "success",
-            data: {
-                data: null,
-            }
-        })
-    } catch (err) {
-        console.log(err);
-        return res.status(200).json({
-            status: "faild",
-            data: {
-                data: null,
-            }
+            data: {}
         })
     }
-}
+)
 
-const getDocsByQuery = async (req, res) => {
-    try {
+const getDocsByQuery = catchAsync(
+    async (req, res, next) => {
         const newQuery = req.query.q.normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "")
             .replace(/đ/g, "d")
@@ -72,10 +53,8 @@ const getDocsByQuery = async (req, res) => {
                 docs: docs[0]
             }
         })
-    } catch (err) {
-        console.log(err);
     }
-}
+)
 
 
 

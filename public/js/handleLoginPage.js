@@ -1,11 +1,5 @@
 import { callApi } from './callApi';
-
-function setCookie(cname, cvalue) {
-    const d = new Date();
-    d.setTime(d.getTime() + (3 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
+import { setCookie } from './cookie';
 
 export const signIn = async () => {
     try {
@@ -23,8 +17,8 @@ export const signIn = async () => {
         if (response.data.status === "success") {
             alert("Login successfully !!!!");
             setCookie("name", response.data.data.user?.userName);
-            // setCookie("accessToken", response.data.data.user?.accessToken);
-            // setCookie("refreshToken", response.data.data.user?.refreshToken);
+            setCookie("accessToken", response.data.data.user?.accessToken);
+            setCookie("refreshToken", response.data.data.user?.refreshToken);
             window.location.href = window.location.origin;
         } else {
             throw new Error("login faild, try again !!!!");

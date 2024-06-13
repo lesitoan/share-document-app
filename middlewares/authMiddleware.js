@@ -1,37 +1,40 @@
 const pool = require('../config/connetDB');
 const { generateAccessToken, generateRefreshToken, verifyToken } = require('../utils/jwt');
+const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/AppError');
 
-const isLogin = async (req, res, next) => {
-    try {
-        res.locals.user = "";
-        let token = "";
-        if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
-            token = req.headers.authorization.split(' ')[1];
-        } else {
-            token = req.cookies.accessToken;
+const isLogin = catchAsync(
+    async (req, res, next) => {
+        try {
+            res.locals.user = "";
+            let token = "";
+            if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+                token = req.headers.authorization.split(' ')[1];
+            } else {
+                token = req.cookies.accessToken;
+            }
+            if (!token) {
+                return next(new AppError('Login and try again !!!', 401));
+            };
+            const decode = await verifyToken(token, process.env.ACCESS_TOKEN_SECRET);
+            const respone = await pool.query(`SELECT * FROM users WHERE id = ${decode.id};`);
+            if (!respone) {
+                return next(new AppError('Login and try again !!!', 401));
+            };
+            const user = {
+                userName: respone[0][0].userName,
+            }
+            req.user = respone[0][0];
+            res.locals.user = user;
+            return next();
+        } catch (err) {
+            console.log(err);
+            if (err.name === 'TokenExpiredError') {
+                return next(new AppError('Login and try again !!!', 401));
+            }
         }
-        if (!token) return next();
-        const decode = await verifyToken(token, process.env.ACCESS_TOKEN_SECRET);
-        console.log("decode: ", decode)
-        const respone = await pool.query(`SELECT * FROM users WHERE id = ${decode.id};`);
-        if (!respone) return next();
-        const user = {
-            userName: respone[0][0].userName,
-        }
-        req.user = respone[0][0];
-        res.locals.user = user;
-        return next();
-    } catch (err) {
-        console.log(err);
-        if (err === 'TokenExpiredError') {
-            return res.status(401).json({
-                status: "faild",
-                data: {},
-            })
-        }
-        // next();
     }
-}
+)
 
 
 const authorize = (roles) => {

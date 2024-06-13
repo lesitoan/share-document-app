@@ -1,10 +1,14 @@
-import { handleUploadForm } from './handleUploadForm';
-import { signIn, signUp, logOut } from './handleLoginForm';
+import { handleUploadForm } from './handleUploadPage';
+import { signIn, signUp, logOut } from './handleLoginPage';
 import { handleSearchDocs } from './handleSearchDocs';
 import { pagination } from './pagination';
-import { changePassword } from './handleChangePw'
 import { setAvatar } from './setAvatar';
 
+import { handleUserPage } from './handleUserPage';
+const userPage = document.querySelector('.user-page');
+if (userPage) {
+    handleUserPage();
+}
 
 // set avatar
 const header = document.querySelector('.header');
@@ -86,36 +90,6 @@ if (btnUserInfo) {
     btnUserInfo.addEventListener('click', () => {
         window.location.href = `${window.location.origin}/me`;
     })
-}
-
-// handle click nav bar in user info page
-const userPage = document.querySelector('.user-page');
-if (userPage) {
-    const featureElements = document.querySelectorAll('.feature');
-    for (let i = 0; i < featureElements.length; i++) {
-        featureElements[i].addEventListener('click', (e) => {
-            // hidden all contents
-            const contentBoxs = document.querySelectorAll('.user-page__content');
-            for (let j = 0; j < contentBoxs.length; j++) {
-                if (!contentBoxs[j].className.includes('hidden')) {
-                    contentBoxs[j].classList.add('hidden');
-                }
-            }
-            // show this content of bottom you click
-            const attri = featureElements[i].getAttribute('name');
-            document.querySelector(`.${attri}`).classList.remove('hidden');
-        })
-    }
-}
-
-// sumit change password
-const btnChangePw = document.querySelector('.btn__change-pw');
-if (btnChangePw) {
-    console.log("change pw");
-    btnChangePw.addEventListener('click', (e) => {
-        e.preventDefault();
-        changePassword();
-    });
 }
 
 

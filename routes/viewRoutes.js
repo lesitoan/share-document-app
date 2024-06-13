@@ -10,7 +10,7 @@ router.get('/sign-up', viewControllers.signUpPage);
 router.get('/docs/upload', viewControllers.uploadPage);
 router.get('/docs/:fileName', viewControllers.detailPage);
 router.get('/docs', viewControllers.docsPage);
-router.get('/me', isLogin, viewControllers.userPage);
+router.get('/me', viewControllers.userPage);
 
 
 module.exports = router;
