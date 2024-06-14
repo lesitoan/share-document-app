@@ -3,7 +3,7 @@ const AppError = require('../utils/AppError')
 
 const generateAccessToken = (id, role) => {
     return new Promise((resolve, reject) => {
-        jwt.sign({ id, role }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '10s' }, (err, token) => {
+        jwt.sign({ id, role }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '300s' }, (err, token) => {
             if (err) reject(err)
             resolve(token)
         })
