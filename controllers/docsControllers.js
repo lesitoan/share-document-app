@@ -24,7 +24,7 @@ const createDoc = catchAsync(
             .replace(/[\u0300-\u036f]/g, "")
             .replace(/đ/g, "d")
             .replace(/Đ/g, "D")
-            .replace(/\s/g, '_')
+            .replace(/\s/g, '-')
             .toLowerCase();
 
         const query = ` INSERT INTO documents (name, school, academic, url, slug)
@@ -43,7 +43,7 @@ const getDocsByQuery = catchAsync(
             .replace(/[\u0300-\u036f]/g, "")
             .replace(/đ/g, "d")
             .replace(/Đ/g, "D")
-            .replace(/\s/g, '_')
+            .replace(/\s/g, '-')
             .toLowerCase();
         const query = `SELECT * FROM documents WHERE slug LIKE '%${newQuery}%';`;
         const docs = await pool.query(query);
