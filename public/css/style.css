@@ -290,10 +290,14 @@ body {
     .detail-doc-page .left-content .doc-view {
       width: 100%;
       height: 60vh;
-      background-color: green; }
+      background-color: green;
+      overflow: scroll; }
       .detail-doc-page .left-content .doc-view iframe {
         width: 100%;
         height: 100%; }
+      .detail-doc-page .left-content .doc-view canvas {
+        padding-top: 0;
+        width: 100%; }
     .detail-doc-page .left-content .btn {
       padding: 0 3rem;
       margin-top: 1rem;

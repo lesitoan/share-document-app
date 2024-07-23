@@ -9,5 +9,8 @@ router.route('/')
     .get(docsController.getAllDocs);
 router.route('/upload')
     .post(uploadFile.single("fileName"), docsController.createDoc);
+router.route('/:url')
+    .get(docsController.getDocByUrl);
+router.get('/download/:url', docsController.downloadDoc)
 
 module.exports = router;

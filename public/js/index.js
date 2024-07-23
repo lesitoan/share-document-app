@@ -3,6 +3,8 @@ import { signIn, signUp, logOut } from './handleLoginPage';
 import { handleSearchDocs } from './handleSearchDocs';
 import { pagination } from './pagination';
 import { setAvatar } from './setAvatar';
+import { handleDetailPage } from './handleDetailPage';
+
 
 import { handleUserPage } from './handleUserPage';
 const userPage = document.querySelector('.user-page');
@@ -96,32 +98,5 @@ if (btnUserInfo) {
 // import pdfjs from 'pdfjs-dist/build/pdf.mjs';
 const deltaiPage = document.querySelector('.detail-doc-page');
 if (deltaiPage) {
-    console.log('deltai doc page !!!!');
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.worker.min.js'
-    async function getDoc() {
-        const pdffile = await pdfjsLib.getDocument('/pdf/1718131083720-367.pdf').promise;
-        const page = await pdffile.getPage(1);
-        const pdfCanvas = document.createElement("canvas");
-        const context = pdfCanvas.getContext("2d");
-
-        var viewport = page.getViewport({ scale: 2, });
-        // Support HiDPI-screens.
-        var outputScale = window.devicePixelRatio || 1;
-
-
-        pdfCanvas.width = Math.floor(viewport.width * outputScale);
-        pdfCanvas.height = Math.floor(viewport.height * outputScale);
-
-        deltaiPage.append(pdfCanvas);
-
-        var renderContext = {
-            canvasContext: context,
-            viewport: viewport
-        };
-        page.render(renderContext);
-        // return page
-    }
-    getDoc().then(data => {
-        console.log("data: ", data);
-    })
+    handleDetailPage();
 }

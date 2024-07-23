@@ -1,5 +1,7 @@
+const path = require('path');
 const pool = require('../config/connetDB');
 const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/AppError');
 
 const getAllDocs = catchAsync(
     async (req, res, next) => {
@@ -56,6 +58,37 @@ const getDocsByQuery = catchAsync(
     }
 )
 
+const getDocByUrl = catchAsync(
+    async (req, res, next) => {
+        const url = req.params.url;
+        console.log(url);
+        const query = `SELECT * FROM documents WHERE url =  '${url}';`;
+        const response = await pool.query(query);
+        const doc = response[0][0];
+        console.log(doc);
+        if (!doc) {
+            return next(new AppError("Can not find doc !!!", 404));
+        }
+        return res.status(200).json({
+            status: "success",
+            data: {
+                doc: doc
+            }
+        })
+    }
+)
+
+const downloadDoc = catchAsync(
+    async (req, res, next) => {
+        const url = req.params.url;
+        console.log(url);
+        const urlFile = path.join(__dirname, `../pdf-private/${url}.pdf`);
+        console.log(urlFile)
+        return res.download(urlFile);
+    }
+)
 
 
-module.exports = { createDoc, getAllDocs, getDocsByQuery };
+
+
+module.exports = { createDoc, getAllDocs, getDocsByQuery, getDocByUrl, downloadDoc };
