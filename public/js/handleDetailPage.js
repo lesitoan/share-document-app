@@ -1,4 +1,5 @@
 import { callApi } from './callApi';
+import fileDownload from 'js-file-download';
 
 async function displayDoc() {
     const url = `/pdf/${window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}.pdf`;
@@ -83,4 +84,18 @@ export const handleDetailPage = async () => {
     console.log('deltai doc page !!!!!!');
     await displayDoc();
     await viewDetailDoc();
+
+    const bntDownload = document.querySelector('.btn__download');
+    if (bntDownload) {
+        bntDownload.addEventListener('click', async () => {
+            console.log('ok');
+            const urlFile = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+            const url = `${window.location.origin}/api/v1/docs/download/${urlFile}`;
+            const response = await callApi(url, {
+                method: "GET",
+                responseType: "blob"
+            })
+            fileDownload(response.data, 'test.pdf')
+        })
+    }
 }

@@ -21,6 +21,7 @@ const createDoc = catchAsync(
         const { name, school, academic } = req.body;
         const url = req.file?.filename ? req.file.filename : null;
 
+
         //create slug
         const slug = name.normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "")
@@ -32,6 +33,7 @@ const createDoc = catchAsync(
         const query = ` INSERT INTO documents (name, school, academic, url, slug)
                             VALUES ('${name}', '${school}', '${academic}', '${url}', '${slug}');`;
         await pool.query(query);
+
         return res.status(201).json({
             status: "success",
             data: {}
@@ -82,7 +84,7 @@ const downloadDoc = catchAsync(
     async (req, res, next) => {
         const url = req.params.url;
         console.log(url);
-        const urlFile = path.join(__dirname, `../pdf-private/${url}.pdf`);
+        const urlFile = path.join(__dirname, `../public/pdf/${url}.pdf`);
         console.log(urlFile)
         return res.download(urlFile);
     }
