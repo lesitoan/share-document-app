@@ -6134,7 +6134,7 @@ var handleDetailPage = exports.handleDetailPage = /*#__PURE__*/function () {
                     });
                   case 5:
                     response = _context2.sent;
-                    (0, _jsFileDownload.default)(response.data, 'test.pdf');
+                    (0, _jsFileDownload.default)(response.data, "".concat(urlFile, ".pdf"));
                   case 7:
                   case "end":
                     return _context2.stop();
@@ -6476,7 +6476,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62879" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59816" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

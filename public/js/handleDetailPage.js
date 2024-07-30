@@ -95,7 +95,7 @@ export const handleDetailPage = async () => {
                 method: "GET",
                 responseType: "blob"
             })
-            fileDownload(response.data, 'test.pdf')
+            fileDownload(response.data, `${urlFile}.pdf`)
         })
     }
 }
